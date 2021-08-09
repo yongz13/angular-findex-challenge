@@ -1,0 +1,7 @@
+<mat-list>
+  <h3 matSubheader>Images</h3>
+  <mat-list-item *ngFor="let image of images">
+    <h4>Ratio: {{image.ratio}}</h4>
+    <img matListAvatar src="{{image.url}}" alt="{{image.ratio}}" [attr.width]="image.width" [attr.height]="image.height">
+  </mat-list-item>
+</mat-list>

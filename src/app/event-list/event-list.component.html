@@ -1,0 +1,39 @@
+<div>
+  <div class="spinner-container" *ngIf="dataSource.loading$ | async">
+    <mat-spinner></mat-spinner>
+</div>
+    <div class="container">
+      <div fxLayout="row" fxLayoutAlign="center center" class="content">
+        <mat-card class="card" >
+          <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+            <h3>Recent Events</h3>
+          </mat-card-title>
+          <mat-card-content>
+              <div class="example-container mat-elevation-z8">
+                  <mat-table #table [dataSource]="dataSource" matSort matSortActive="name" matSortDirection="asc" matSortDisableClear>
+                  <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                  </ng-container>
+                    <ng-container matColumnDef="url">
+                      <mat-header-cell *matHeaderCellDef> URL </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.url}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="info">
+                      <mat-header-cell *matHeaderCellDef> Info </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.info}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="pleaseNote">
+                      <mat-header-cell *matHeaderCellDef> Note </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.pleaseNote}} </mat-cell>
+                    </ng-container>
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/events/', row.id]"></mat-row>
+                  </mat-table>
+                  <mat-paginator [length]="dataSource.totalPages"  [pageSize]="20" showFirstLastButtons></mat-paginator>
+                </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>

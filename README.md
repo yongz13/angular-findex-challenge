@@ -1,6 +1,9 @@
-# AngularMaterialTutorial
+# AngularFindexChallengr
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.3.
+## package install
+
+Run 'npm install' in the project root folder
 
 ## Development server
 

@@ -1,0 +1,7 @@
+<mat-list>
+  <h3 matSubheader>Products</h3>
+  <mat-list-item *ngFor="let product of products">
+     <h4>Name: {{product.name}}</h4>
+     <h4>{{product.type}} map link: <a [href]="product.url" target="_blank">{{product.url}} </a></h4>
+  </mat-list-item>
+</mat-list>

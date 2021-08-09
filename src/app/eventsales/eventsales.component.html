@@ -1,0 +1,16 @@
+<mat-list>
+  <h3 matSubheader>Sales</h3>
+  <h4 matSubheader>Public</h4>
+  <mat-list-item>
+    <h4>Start TBD: {{sales?.public?.startTBD}}</h4>
+    <h4>Start TBA: {{sales?.public?.startTBA}}</h4>
+    <h4>Start date time: {{sales?.public?.startDateTime | date: 'd/m/yyyy'}}</h4>
+    <h4>End date time: {{sales?.public?.endDateTime | date: 'd/m/yyyy'}}</h4>
+  </mat-list-item>
+  <h4 matSubheader *ngIf="sales?.preSales">PreSales</h4>
+  <mat-list-item *ngFor="let preSale of sales?.preSales">
+    <h4>Name: {{preSale?.name}}</h4>
+    <h4>Start date time: {{preSale?.startDateTime | date: 'd/m/yyyy'}}</h4>
+    <h4>End date time: {{preSale?.endDateTime | date: 'd/m/yyyy'}}</h4>
+  </mat-list-item>
+</mat-list>
