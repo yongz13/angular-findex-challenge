@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { EventResolver } from "./core/event-resolver";
-import { EventDetailComponent } from "./event-detail/event-detail.component";
 import { EventListComponent } from "./event-list/event-list.component";
 
 const routes: Routes = [
@@ -12,7 +11,7 @@ const routes: Routes = [
   },
   {
       path: 'events/:id',
-      component: EventDetailComponent,
+      loadChildren: (() => import('./event-detail/event-detail.module').then(m => m.EventDetailModule)),
       resolve: {
           event: EventResolver
       }
